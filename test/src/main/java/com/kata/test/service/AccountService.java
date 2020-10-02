@@ -29,12 +29,12 @@ public class AccountService {
      * @throws NoSuchAccountException
      */
     public List<Operation> listAllOperations(long accountId) throws NoSuchAccountException {
-        logger.info("Getting Account with identifier...");
+        logger.info("US 3 : Getting Account with identifier...");
         Optional<Account> optionalBankAccount = accountRepository.findById(accountId);
         if(!optionalBankAccount.isPresent()){
             throw new NoSuchAccountException(": "+accountId);
         }
-        logger.info("Getting the Account Operations");
+        logger.info("US 3 : Getting the Account Operations");
         optionalBankAccount.get().getOperations().stream().forEach(System.out::println);
         return optionalBankAccount.get().operations;
     }
